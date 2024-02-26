@@ -1,9 +1,11 @@
 #get environment variables
 from dotenv import load_dotenv
 load_dotenv()
+
 #add logging
 import logging
 import sys
+
 #DEBUG is verbose, INFO is less verbose
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
@@ -14,7 +16,12 @@ from llama_index.core import (
     SimpleDirectoryReader,
     StorageContext,
     load_index_from_storage,
+    Settings,
 )
+
+# switch embedding model from default to newer/better/cheaper model
+from llama_index.embeddings.openai import OpenAIEmbedding
+Settings.embed_model = OpenAIEmbedding(model_name="text-embedding-3-small")
 
 # check if storage already exists
 PERSIST_DIR = "./storage"
@@ -31,5 +38,5 @@ else:
 
 # Either way we can now query the index
 query_engine = index.as_query_engine()
-response = query_engine.query("What did the author do growing up?")
+response = query_engine.query("What is the author's name and job now?")
 print(response)
