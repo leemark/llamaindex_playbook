@@ -1,3 +1,4 @@
+#NOTE: your .env file should contain OPENAI_API_KEY='sk-your-key-here'
 #get environment variables
 from dotenv import load_dotenv
 load_dotenv()
