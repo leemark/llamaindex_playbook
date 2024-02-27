@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ## Usage
 To run an example, navigate to its directory and execute the Python script:
 ```bash
-cd path/to/example
+cd path/to/examples
 python hello.py
 ```
 
