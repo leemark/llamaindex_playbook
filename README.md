@@ -11,8 +11,8 @@ This repository contains a collection of basic Python examples utilizing LlamaIn
 ## Installation
 To set up your environment to run these examples, follow these steps:
 ```bash
-git clone https://github.com/yourusername/llamaindex-examples.git
-cd llamaindex-examples
+git clone https://github.com/leemark/llamaindex_ex.git
+cd llamaindex_ex
 pip install -r requirements.txt
 ```
 
@@ -24,11 +24,11 @@ python hello.py
 ```
 
 ## Examples
-- `hello_world_w_index.py`: Demonstrates a basic "Hello, World!" example with an index.
+- `hello.py`: Demonstrates a basic "Hello, World!" example with an index.
 - `hello_persist.py`: Showcases how to create a persistent RAG index.
-- `using_local_models_with_ollama.py`: Provides an example of using local models with LlamaIndex.
+- `local_models_ollama.py`: Provides an example of using local models with LlamaIndex and ollama.
 - `streamlit_interface.py`: A simple Streamlit app interface for interacting with the model.
-- `rag_augmented_web_search.py`: An example of augmenting web search results with RAG.
+- `rag_web_search.py`: An example of augmenting web search results with RAG.
 
 ## Contributing
 We welcome contributions! If you'd like to improve an example or add a new one, please open a pull request with your proposed changes.
