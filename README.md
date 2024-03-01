@@ -28,7 +28,8 @@ python hello.py
 - `hello_persist.py`: Showcases how to create a persistent RAG index.
 - `local_models_ollama.py`: Provides an example of using local models with LlamaIndex and ollama.
 - `streamlit_interface.py`: A simple Streamlit app interface for interacting with the model.
-- `rag_web_search.py`: An example of augmenting web search results with RAG.
+- `rag_web_page.py`: An example of augmenting a single web page with RAG.
+- `rag_web_search_brave.py`: An example of augmenting brave api web search results with RAG.
 
 ## Contributing
 We welcome contributions! If you'd like to improve an example or add a new one, please open a pull request with your proposed changes.
