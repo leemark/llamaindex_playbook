@@ -15,23 +15,37 @@ USER_AGENT = 'Mozilla/5.0 (compatible; YourBot/1.0; +http://yourwebsite.com/bot.
 HEADERS = {'User-Agent': USER_AGENT}
 RETRIES = Retry(total=5, backoff_factor=0.1, status_forcelist=[500, 502, 503, 504])
 
-# Initialize logging
 def setup_logging():
+    """
+    Initialize logging configuration to output logs to stdout.
+    """
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
     logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
-# Load environment variables
 def load_environment_variables():
+    """
+    Load environment variables from the .env file.
+    :return: The Brave API key.
+    """
     load_dotenv()
     return os.getenv('BRAVE_API_KEY')
 
-# Perform the Brave search
 def perform_search(query, api_key):
+    """
+    Perform a search using the Brave Search API.
+    :param query: The search query.
+    :param api_key: The Brave API key.
+    :return: The search response.
+    """
     tool_spec = BraveSearchToolSpec(api_key=api_key)
     return tool_spec.brave_search(query=query)
 
-# Extract search results from the response
 def extract_search_results(response):
+    """
+    Extract search results from the Brave Search API response.
+    :param response: The search response.
+    :return: A list of search results.
+    """
     documents = [doc.text for doc in response]
     search_results = []
     for document in documents:
@@ -39,8 +53,12 @@ def extract_search_results(response):
         search_results.extend(response_data.get('web', {}).get('results', []))
     return search_results
 
-# Scrape web pages from URLs
 def scrape_web_pages(search_results):
+    """
+    Scrape web pages from the URLs obtained from the search results.
+    :param search_results: The list of search results.
+    :return: A list of scraped documents.
+    """
     session = requests.Session()
     session.mount('http://', HTTPAdapter(max_retries=RETRIES))
     session.mount('https://', HTTPAdapter(max_retries=RETRIES))
@@ -58,8 +76,10 @@ def scrape_web_pages(search_results):
 
     return all_documents
 
-# Main function to orchestrate the search and scraping
 def main():
+    """
+    Main function to orchestrate the search, scraping, and querying process.
+    """
     setup_logging()
     api_key = load_environment_variables()
     my_query = "What is the latest news about llamaindex?"
