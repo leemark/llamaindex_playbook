@@ -23,7 +23,7 @@ Settings.llm = Ollama(model="mistral", request_timeout=360.0)
 # Make sure to run: ollama pull mistral
 
 # Constants
-USER_AGENT = 'Mozilla/5.0 (compatible; YourBot/1.0; +http://yourwebsite.com/bot.html)'
+USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
 HEADERS = {'User-Agent': USER_AGENT}
 RETRIES = Retry(total=5, backoff_factor=0.1, status_forcelist=[500, 502, 503, 504])
 
