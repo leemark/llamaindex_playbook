@@ -13,10 +13,11 @@ from llama_index.core import VectorStoreIndex, Document
 from llama_index.tools.brave_search import BraveSearchToolSpec
 from llama_index.readers.web import SimpleWebPageReader
 
+
+# Local Model Setup
 from llama_index.core import Settings
 Settings.embed_model = OllamaEmbedding(model_name="nomic-embed-text")
 # Make sure to run: ollama pull nomic-embed-text
-
 from llama_index.llms.ollama import Ollama
 Settings.llm = Ollama(model="mistral", request_timeout=60.0)
 # Make sure to run: ollama pull mistral
