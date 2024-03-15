@@ -19,7 +19,7 @@ from llama_index.core import Settings
 Settings.embed_model = OllamaEmbedding(model_name="nomic-embed-text")
 # Make sure to run: ollama pull nomic-embed-text
 from llama_index.llms.ollama import Ollama
-Settings.llm = Ollama(model="mistral", request_timeout=60.0)
+Settings.llm = Ollama(model="mistral", request_timeout=360.0)
 # Make sure to run: ollama pull mistral
 
 # Constants
