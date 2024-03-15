@@ -94,7 +94,7 @@ def main():
     """
     setup_logging()
     api_key = load_environment_variables()
-    my_query = "Who was the 43rd President of the United States?"
+    my_query = "What is RAG, retrieval augmented generation?"
     response = perform_search(my_query, api_key)
     search_results = extract_search_results(response)
     all_documents = scrape_web_pages(search_results)
